@@ -1,5 +1,7 @@
 #!/bin/bash
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd $DIR
 SSH_CONFIG=ssh_config
 DATADIR=/data/iCarbon/
 SENSOR=LI-7550
