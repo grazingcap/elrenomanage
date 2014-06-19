@@ -2,13 +2,17 @@ Host grlrpi
     Hostname 166.130.8.161
     User pi
     Port 3222
+    IdentityFile ~/.ssh/elreno
 Host licor-igos-east
     User licor
-    ProxyCommand ssh -q grlrpi nc -q0 192.168.88.231 22
+    ProxyCommand ssh -F ssh_config -q grlrpi nc 192.168.88.231 22
+    IdentityFile ~/.ssh/elreno
 Host licor-igos-west
     User licor
-    ProxyCommand ssh -q grlrpi nc -q0 192.168.88.225 22
+    ProxyCommand ssh -F ssh_config -q grlrpi nc 192.168.88.225 22
+    IdentityFile ~/.ssh/elreno
 Host licor-icos-east
     User licor
-    ProxyCommand ssh -q grlpi nc -q0 192.168.88.222 22
-
+    Hostname 192.168.88.222
+    ProxyCommand ssh -F ssh_config -q grlrpi nc %h %p
+    IdentityFile ~/.ssh/elreno
