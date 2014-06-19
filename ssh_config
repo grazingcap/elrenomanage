@@ -1,0 +1,14 @@
+Host grlrpi
+    Hostname 166.130.8.161
+    User pi
+    Port 3222
+Host licor-igos-east
+    User licor
+    ProxyCommand ssh -q grlrpi nc -q0 192.168.88.231 22
+Host licor-igos-west
+    User licor
+    ProxyCommand ssh -q grlrpi nc -q0 192.168.88.225 22
+Host licor-icos-east
+    User licor
+    ProxyCommand ssh -q grlpi nc -q0 192.168.88.222 22
+
