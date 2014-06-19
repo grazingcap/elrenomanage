@@ -7,7 +7,8 @@ SENSOR=LI-7550
 _licor() {
     SITE=$1
     SITETAG=$2
-    rsync -avz -e "ssh -v -F ${SSH_CONFIG}" ${SITE} ${DATADIR}/${SITETAG}/${SENSOR}
+    EXCLUDE="--exclude .Spotlight-V100"
+    rsync ${EXCLUDE} -avz -e "ssh -v -F ${SSH_CONFIG}" ${SITE} ${DATADIR}/${SITETAG}/${SENSOR}
 }
 
 igos-east-licor() {
