@@ -1,0 +1,38 @@
+#!/bin/bash
+
+SSH_CONFIG=ssh_config
+DATADIR=/tmp/data/iCarbon/
+SENSOR=LI-7550
+
+_licor() {
+    SITE=$1
+    SITETAG=$2
+    rsync -avz -e "ssh -v -F ${SSH_CONFIG}" ${SITE} ${DATADIR}/${SITETAG}/${SENSOR}
+}
+
+igos-east-licor() {
+    SITE=licor-igos-east:data/
+    SITETAG=iGOS_East
+    mkdir -p ${DATADIR}/${SITETAG}/${SENSOR}
+    _licor ${SITE} ${SITETAG}
+}
+
+igos-west-licor() {
+    SITE=licor-igos-west:data/
+    SITETAG=iGOS_West
+    mkdir -p ${DATADIR}/${SITETAG}/${SENSOR}
+    _licor ${SITE} ${SITETAG}
+}
+
+icos-east-licor() {
+    SITE=licor-icos-east:data/
+    SITETAG=iCOS_East
+    mkdir -p ${DATADIR}/${SITETAG}/${SENSOR}
+    _licor ${SITE} ${SITETAG}
+}
+
+main() {
+    $1
+}
+
+main $1
