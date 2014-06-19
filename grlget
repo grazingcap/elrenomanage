@@ -11,21 +11,21 @@ _licor() {
 }
 
 igos-east-licor() {
-    SITE=licor-igos-east:data/
+    SITE=licor-igos-east:data
     SITETAG=iGOS_East
     mkdir -p ${DATADIR}/${SITETAG}/${SENSOR}
     _licor ${SITE} ${SITETAG}
 }
 
 igos-west-licor() {
-    SITE=licor-igos-west:data/
+    SITE=licor-igos-west:data
     SITETAG=iGOS_West
     mkdir -p ${DATADIR}/${SITETAG}/${SENSOR}
     _licor ${SITE} ${SITETAG}
 }
 
 icos-east-licor() {
-    SITE=licor-icos-east:data/
+    SITE=licor-icos-east:data
     SITETAG=iCOS_East
     mkdir -p ${DATADIR}/${SITETAG}/${SENSOR}
     _licor ${SITE} ${SITETAG}
