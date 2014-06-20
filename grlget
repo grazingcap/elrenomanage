@@ -1,4 +1,9 @@
 #!/bin/bash
+##########################################################################
+## Jonah Duckles (c) 2014 - jduckles@ou.edu
+## Wrapper to run rsync with custom SSH ProxyCommand's to pierce firewall 
+##
+##########################################################################
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
