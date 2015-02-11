@@ -19,6 +19,13 @@ _licor() {
     rsync ${EXCLUDE} -avz -e "ssh -v -F ${SSH_CONFIG}" ${SITE} ${DATADIR}/${SITETAG}/${SENSOR}
 }
 
+_phenocam {
+    SITE=$1
+    OUTFILE=$2
+    PORT=$3
+    wget localhost:${PORT} -O ${OUTFILE}
+}
+
 igos-east-licor() {
     SITE=licor-igos-east:data
     SITETAG=iGOS_East
@@ -35,6 +42,11 @@ icos-east-licor() {
     SITE=licor-icos-east:data
     SITETAG=iCOS_East
     _licor ${SITE} ${SITETAG}
+}
+
+igos-east-phenocam() {
+    SITE=igos-east-phenocam
+
 }
 
 main() {
