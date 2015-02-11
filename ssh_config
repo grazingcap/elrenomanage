@@ -7,6 +7,22 @@ Host grlrpi
     Hostname 166.130.8.161
     User admin
     Port 2100
+Host sxtadmin
+    Hostname 166.130.8.161
+    User admin
+    Port 2100
+    LocalForward 8060 192.168.88.51:80
+    LocalForward 8061 192.168.88.52:80
+    LocalForward 8062 192.168.88.218:80
+    LocalForward 8063 192.168.88.222:80
+Host phenocamadmin
+    Hostname 166.130.8.161
+    User admin
+    Port 2100
+    LocalForward 8070 192.168.88.230:80
+    LocalForward 8071 192.168.88.220:80
+    LocalForward 8072 192.168.88.219:80
+    LocalForward 8073 192.168.88.221:80
 Host licor-igos-east
     User licor
     Hostname 192.168.88.231
@@ -35,5 +51,10 @@ Host sxt-igos-west
 Host sxt-icos-east
     User admin
     Hostname 192.168.88.218
+    ProxyCommand ssh -F ssh_config -W %h:%p grlrpi
+    IdentityFile ~/.ssh/elrenodsa
+Host sxt-igos-temp
+    User admin
+    Hostname 192.168.88.222
     ProxyCommand ssh -F ssh_config -W %h:%p grlrpi
     IdentityFile ~/.ssh/elrenodsa
